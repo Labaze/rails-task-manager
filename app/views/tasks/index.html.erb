@@ -4,16 +4,20 @@
 
   <p><% if task.completed %></p>
   <h2><i class="far fa-check-square"><%= link_to task.title, task_path(task) %></i>
-      <%= link_to "Delete", task_path(task),
+      <%= link_to task_path(task),
           method: :delete,
-          data: { confirm: "Are you sure?" } %>
-      <i class="fas fa-trash-alt"></i></h2>
+          data: { confirm: "Are you sure?" } do %>
+            <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </h2>
       <% else  %>
   <h2><i class="far fa-square"><%= link_to task.title, task_path(task) %></i>
-          <%= link_to "Delete", task_path(task),
+          <%= link_to task_path(task),
           method: :delete,
-          data: { confirm: "Are you sure?" } %>
-          <i class="fas fa-trash-alt"></i></h2>
+          data: { confirm: "Are you sure?" } do %>
+          <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </h2>
      <% end %>
 <% end %>
 
